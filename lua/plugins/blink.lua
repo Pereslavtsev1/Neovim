@@ -2,7 +2,7 @@ return {
   "saghen/blink.cmp",
   opts = {
     keymap = {
-      ["<C-T>"] = {
+      ["<C-S>"] = {
         function(cmp)
           cmp.show({ providers = { "snippets" } })
         end,
@@ -25,7 +25,7 @@ return {
       documentation = {
         window = {
           border = "none",
-          winblend = 100,
+          -- winblend = 100,
         },
       },
       menu = {

@@ -25,7 +25,7 @@ return {
       },
       float = {
         transparent = true,
-        solid = true,
+        solid = false,
       },
       compile = { enabled = false },
       color_overrides = overrides,
