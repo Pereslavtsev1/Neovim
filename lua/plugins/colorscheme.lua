@@ -52,6 +52,10 @@ return {
         bufferline = true,
         telescope = { enabled = true },
         indent_blankline = { enabled = true },
+        snacks = {
+          enabled = false,
+          indent_scope_color = "",
+        },
         native_lsp = {
           enabled = true,
           underlines = {
@@ -66,6 +70,72 @@ return {
     config = function(_, opts)
       require("catppuccin").setup(opts)
       vim.cmd("colorscheme catppuccin")
+
+      local function set_snacks_bold()
+        for _, group in ipairs({
+          -- Picker: files and directories
+          "SnacksPickerDir",
+          "SnacksPickerFile",
+          "SnacksPickerMatch",
+          "SnacksPickerTree",
+          "SnacksPickerPathHidden",
+          "SnacksPickerPathIgnored",
+          "SnacksPickerPath",
+          "SnacksPickerGitStatus",
+
+          -- Git status
+          "SnacksPickerGitStatusAdded",
+          "SnacksPickerGitStatusModified",
+          "SnacksPickerGitStatusDeleted",
+          "SnacksPickerGitStatusRenamed",
+          "SnacksPickerGitStatusUntracked",
+          "SnacksPickerGitStatusIgnored",
+          "SnacksPickerGitStatusUnmerged",
+
+          -- Picker UI
+          "SnacksPickerTitle",
+          "SnacksPickerPrompt",
+          "SnacksPickerInput",
+          "SnacksPickerList",
+          "SnacksPickerPreview",
+          "SnacksPickerPreviewTitle",
+          "SnacksPickerBorder",
+          "SnacksPickerToggle",
+          "SnacksPickerSelected",
+          "SnacksPickerCursorLine",
+
+          -- Explorer
+          "SnacksExplorerTitle",
+          "SnacksExplorerDir",
+          "SnacksExplorerFile",
+          "SnacksExplorerGitStatus",
+
+          -- Dashboard
+          "SnacksDashboardTitle",
+          "SnacksDashboardHeader",
+          "SnacksDashboardKey",
+          "SnacksDashboardDesc",
+          "SnacksDashboardIcon",
+
+          -- Notifications
+          "SnacksNotifierTitle",
+          "SnacksNotifierMessage",
+          "SnacksNotifierIcon",
+
+          -- Indent
+          "SnacksIndent",
+          "SnacksIndentScope",
+        }) do
+          local hl = vim.api.nvim_get_hl(0, {
+            name = group,
+            link = false,
+          })
+          hl.bold = true
+          vim.api.nvim_set_hl(0, group, hl)
+        end
+      end
+
+      set_snacks_bold()
 
       _G.reload_matugen_colors = function()
         vim.schedule(function()

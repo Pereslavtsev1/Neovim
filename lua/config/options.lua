@@ -23,6 +23,8 @@ opt.swapfile = false
 opt.autoread = true
 vim.g.snacks_animate = false
 vim.opt.laststatus = 3
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = "nc"
 
 if vim.g.neovide then
   vim.o.guifont = "JetbrainsMono Nerd Font:h12:b:i"
@@ -52,3 +54,13 @@ if vim.g.neovide then
     change_scale_factor(1 / 1.25)
   end)
 end
+-- Make Snacks UI bold
+vim.api.nvim_set_hl(0, "SnacksPicker", { bold = true })
+vim.api.nvim_set_hl(0, "SnacksPickerBorder", { bold = true })
+vim.api.nvim_set_hl(0, "SnacksPickerTitle", { bold = true })
+vim.api.nvim_set_hl(0, "SnacksPickerPrompt", { bold = true })
+vim.api.nvim_set_hl(0, "SnacksPickerInput", { bold = true })
+vim.api.nvim_set_hl(0, "SnacksPickerList", { bold = true })
+vim.api.nvim_set_hl(0, "SnacksPickerPreview", { bold = true })
+vim.api.nvim_set_hl(0, "SnacksNotifierTitle", { bold = true })
+vim.api.nvim_set_hl(0, "SnacksNotifierIcon", { bold = true })
