@@ -1,4 +1,16 @@
 return {
   "axelvc/template-string.nvim",
-  opts = {},
+  opts = {
+    filetypes = {
+      "html",
+      "typescript",
+      "javascript",
+      "typescriptreact",
+      "javascriptreact",
+      "vue",
+      "svelte",
+      "python",
+      "cs",
+    },
+  },
 }

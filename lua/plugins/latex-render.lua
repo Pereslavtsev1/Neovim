@@ -1,6 +1,5 @@
 return {
   "techwizrd/render-latex.nvim",
-  ft = "markdown",
   opts = {
     render = {
       preset = "match_text", -- "compact" or "presentation"
